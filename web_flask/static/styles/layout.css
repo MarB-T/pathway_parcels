@@ -1,0 +1,92 @@
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  align-items: center;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.logo img {
+  width: 60px;
+  float: left;
+  height: auto
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+}
+
+.sidebar {
+  background-color: #87A7F9;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
+/*  float: left;*/
+}
+
+.empty_space {
+  flex-grow: 1;
+}
+
+.sidebar > :last-child {
+  margin-top: auto;
+}
+
+.profile-picture {
+  width: 80%; /* Adjust the width as needed */
+  height: 80%; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it a circular shape */
+  margin: 0 auto 10px; /* Add some spacing below the profile picture */
+}
+
+.lmainsection {
+  width: 75%;
+  height: 100%;
+  padding: 20px;
+  background-color: grey;
+  border-radius: 3px;
+  float: right;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 600px) {
+    .topnav {
+        flex-direction: column;
+    }
+
+    .topnav a, .topnav .profile {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar {
+	display: none;
+    }
+
+    .mainsection {
+	width: 100%;
+	background-color: grey;
+    }
+
+}
