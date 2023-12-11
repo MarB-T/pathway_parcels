@@ -1,3 +1,7 @@
+/*body {
+  background-color: yellow;
+}*/
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -5,9 +9,10 @@
 
 .topnav a {
   color: #f2f2f2;
+  margin: auto;
+  padding: 12px;
   align-items: center;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -22,52 +27,303 @@
   color: white;
 }
 
+.topnav a.login {
+  float: right;
+}
+
+.topnav a.register {
+  float: right;
+}
+
 .logo img {
   width: 60px;
   float: left;
-  height: auto
+  height: auto;
+  align: center;
 }
+
 
 .container {
   display: flex;
-  padding: 20px;
+  width: 100%;
+  height: 100vh;
 }
 
 .sidebar {
   background-color: #87A7F9;
-  display: flex;
-  flex-direction: column;
+  /*display: flex;*/
   width: 20%;
-  height: 100vh;
+  display: 1;
+  /*height: 100vh;*/
   padding: 20px;
   text-align: center;
   border-radius: 4px;
-/*  float: left;*/
+  /*float: left;*/
 }
 
 .empty_space {
   flex-grow: 1;
+  position: relative;
+  height: 50%;
 }
 
-.sidebar > :last-child {
+/*.sidebar > :last-child {
   margin-top: auto;
-}
+}*/
 
 .profile-picture {
   width: 80%; /* Adjust the width as needed */
-  height: 80%; /* Adjust the height as needed */
+  height: 15%; /* Adjust the height as needed */
   border-radius: 50%; /* Make it a circular shape */
   margin: 0 auto 10px; /* Add some spacing below the profile picture */
 }
 
-.lmainsection {
-  width: 75%;
-  height: 100%;
+
+
+.mainsection {
+  /*flex-grow: 1;*/
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  width: 80%;
+  /*height: 100vh;*/
   padding: 20px;
   background-color: grey;
   border-radius: 3px;
-  float: right;
+  text-align: center;
+  overflow: auto;
+  /*float: right;*/
 }
+
+
+.skeleton-mainsection {
+  /*flex-grow: 1;*/
+  display: flex;
+  justify-content: center;
+  /*align-items: center;*/
+  width: 100%;
+  /*height: 100vh;*/
+  padding: 20px;
+  background-color: grey;
+  border-radius: 3px;
+  text-align: center;
+  /*float: right;*/
+}
+/**
+.search .search_wrap {
+  display: flex;
+  /*width: 900px;*
+  height: 100px;
+  margin: 10px auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.search_wrap .search_box1 {
+  position: relative;
+  width: 500px;
+  height; 80px;
+}
+
+.search_wrap .search_box1 .input .input2 {
+  position: relative;
+  /*top: 0;
+  left: 0;*
+  width: 50%;
+  height: 100%;
+}**/
+
+/** Borrowed **/
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.content-section form fieldset {
+    border: none;
+}
+
+.content-section form fieldset legend {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.content-section form .form-group {
+    margin-bottom: 20px;
+}
+
+.content-section form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+.landingpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.biglogo img {
+  align: center;
+  width: 90%;
+  border-radius: 5px;
+}
+
+.landinghead {
+  font-size: 40px;
+  width: 100%;
+}
+
+.landinghead h1 {
+    color: green;
+}
+
+.catchphrase {
+  width: 100%;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.landingpage a {
+  color: #f2f2f2;
+}
+
+.landingpage a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.landingpage a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.trynow {
+  margin-top: 20px;
+}
+
+.mainpart {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+}
+
+
+/*.search_box1 .button {
+  position: static;
+  top: 0;
+  padding: 10px;
+  width: 60px;
+  height: 90px;
+  background: #7690da;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.fas {
+  position: absolute;
+  top: 50;
+  left: 50;
+  transform: translate(-50%, -50%);
+}*/
+
+        .search-container {
+            position: relative;
+            padding-top: 70px;
+	    width: 60%;
+            background-color: grey;
+            padding: 10px;
+            z-index: 1000; /* Set a higher z-index to ensure it's above other elements */
+        }
+
+.search_box1 {
+    display: flex;
+    align-items: center;
+}
+
+.search_box1 .input,
+.search_box1 .input2,
+.search_box1 .button {
+    height: 30px; /* Adjust the height as needed */
+    margin-right: 10px; /* Adjust the spacing between elements */
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.search_box1 .button {
+    background: #7690da;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.fas {
+    margin-right: 5px; /* Adjust the spacing between the icon and text */
+}
+
+
+.feed-container {
+            margin-top: 10px; /* Adjust based on the height of the search container */
+            overflow-y: auto; /* Enable vertical scrolling for the feed container */
+            height: calc(100vh - 60px); /* Adjust based on the height of the search container */
+	    justify-content: center;
+        }
+
+
+/* Apply styles to the parcel feed */
+.parcel-feed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between parcel blocks as needed */
+}
+
+/* Style for each rectangular parcel block */
+.parcel-block {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    justify-content: center;
+    width: 60%; /* Adjust the width of the parcel block as needed */
+}
+
+/* Style for the origin and destination blocks */
+.origin-dest {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+/*
+.destination-block {
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 50%;
+    float: right;
+}*/
+
+/* Style for the sizes, weight, and amount offered sections */
+.sizes-section,
+.weight-section,
+.amount-offered-section {
+    flex-direction: column;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+/* Apply additional styles as needed */
+
 
 /* Responsive layout adjustments */
 @media screen and (max-width: 600px) {
@@ -85,8 +341,7 @@
     }
 
     .mainsection {
-	width: 100%;
-	background-color: grey;
+    	width: 100%;
     }
 
 }

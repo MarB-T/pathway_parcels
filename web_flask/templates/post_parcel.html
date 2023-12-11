@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Post Parcel</legend>
+				<div class="form-group">
+					{{ form.origin.label(class="form-control-label") }}
+					{% if form.origin.errors %}
+						{{ form.origin(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.origin.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.origin(class="form-control form-control-lg") }}
+					{% endif %}
+				</div>
+				<div class="form-group">
+					{{ form.destination.label(class="form-control-label") }}
+                                        {% if form.destination.errors %}
+                                                {{ form.destination(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.destination.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.destination(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+				<div class="form-group">
+					{{ form.size_l_cm.label(class="form-control-label") }}
+                                        {% if form.size_l_cm.errors %}
+                                                {{ form.size_l_cm(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.size_l_cm.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.size_l_cm(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+				<div class="form-group">
+                                        {{ form.size_w_cm.label(class="form-control-label") }}
+                                        {% if form.size_w_cm.errors %}
+                                                {{ form.size_w_cm(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.size_w_cm.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.size_w_cm(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+				<div class="form-group">
+                                        {{ form.size_h_cm.label(class="form-control-label") }}
+                                        {% if form.size_h_cm.errors %}
+                                                {{ form.size_h_cm(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.size_h_cm.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.size_h_cm(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+				<div class="form-group">
+					{{ form.weight_kg.label(class="form-control-label") }}
+                                        {% if form.weight_kg.errors %}
+                                                {{ form.weight_kg(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.weight_kg.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.weight_kg(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+				<div class="form-group">
+					{{ form.offered_amount.label(class="form-control-label") }}
+                                        {% if form.offered_amount.errors %}
+                                                {{ form.offered_amount(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                        {% for error in form.offered_amount.errors %}
+                                                                <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        {% else %}
+                                                {{ form.offered_amount(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+			<div class="border-top pt-3">
+                		<small class="text-muted">
+                        		 <a class="ml-2" href="{{ url_for('post_parcel') }}">New post</a>or go <a class="ml-2" href="{{ url_for('home') }}">Home</a>
+                		</small>
+        		</div>
+
+		</form>
+	</div>
+{% endblock content %}
+

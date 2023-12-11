@@ -1,0 +1,19 @@
+{% extends "skeleton.html" %}
+{% block content %}
+	<div class="landingpage">
+		<div class="biglogo">
+                	<img src="../static/images/logo.png" alt="Logo">
+            	</div>
+		<div class="landinghead">
+			<h1>Pathway Parcels</h1>
+		</div>
+		<div class="catchphrase">
+			<p>
+			Pathway Parcels enables you to make some extra money whenever you are on transit/travelling.
+			<p><i>If its not a hustle, why not make it free lunch &#x1F609;</i></p>
+			</p>
+		</div>
+		<a href="{{ url_for('home') }}" class="trynow">Try us Now</a>
+		<p>And starting earning</p>
+	</div>
+{% endblock %}

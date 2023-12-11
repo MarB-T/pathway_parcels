@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="mainpart">
+		<div class="search-container">
+		    <form action="{{ url_for('search') }}" method="post">
+			<div class="search_box1">
+        	        	<input type="text" class="input" name="origin" placeholder="Enter Origin">
+                	        <input type="text" class="input2" name="destination" placeholder="Enter Destination">
+                        	<div class="button">
+                            		<i class="fas fa-search"></i>
+			    		Search
+                        	</div>
+			</div>
+		    </form>
+		</div>
+
+	    <div class="feed-container">
+    		<div class="parcel-feed">
+        		{% for parcel in parcels %}
+            			<div class="parcel-block">
+                			<!-- Origin Block (Left) -->
+                			<div class="origin-dest">
+						<strong>{{ parcel.origin }} ----- to ----> {{ parcel.destination }}</strong>
+						<!--</div>-->
+
+                			<!-- Destination Block (Right) -->
+					<!--<div class="destination-block">-->
+						<!--<strong>{{ parcel.destination }}</strong>-->
+                			</div>
+
+                			<!-- Sizes Section -->
+                			<div class="sizes-section">
+                    				<strong>Sizes:</strong>
+                    				({{ parcel.size_l_cm }} * {{ parcel.size_w_cm }} * {{ parcel.size_h_cm }})cm
+                			</div>
+
+                			<!-- Weight Section -->
+                			<div class="weight-amount">
+                    				<strong>Weight:</strong>
+                    				{{ parcel.weight_kg }}kg	
+					<!--</div>-->
+
+                			<!-- Amount Offered Section -->
+					<!--<div class="amount-offered-section">-->
+                    				<strong>Amount Offered:</strong>
+                    				{{ parcel.offered_amount }}
+                			</div>
+					<div class="sender">
+						{% for user in users %}
+							{% if parcel.sender_id == user.id %}
+								<strong>{{ user.username }}</strong>
+							{% endif %}
+						{% endfor %}
+					</div>
+            			</div>
+        		{% endfor %}
+    		</div>
+	    </div>
+	</div>
+{% endblock %}

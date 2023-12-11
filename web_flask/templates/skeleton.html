@@ -14,7 +14,8 @@
                 <img src="../static/images/logo.png" alt="Logo">
             </div>
             <a href="{{ url_for('home') }}" class="active">Home</a>
-	    <a href="{{ url_for('post_parcel') }}">Post a Parcel</a>
+	    <a href="#">Send Parcel</a>
+	    <a href="#">Deliver Parcel</a>
 	    {% if current_user.is_authenticated %}
 	    	<a href="{{ url_for('logout') }}" class="login">Log out</a>
 	    {% else %}
@@ -23,31 +24,7 @@
 	    {% endif %}
 	</div>
 	<div class="container">
-	    <div class="sidebar">
-                <div class="profile_pic">
-		    <img class="profile-picture" src="../static/images/profile_pic.png" alt="Profile Picture">
-		</div>
-		<div class="active-user">
-		    {% if current_user.is_authenticated  %}
-		    	<h2>{{ current_user.username }}</h2>
-		    {% endif %}
-		</div>
-		<div>
-		    <a href="#">Profile</a>
-		</div>
-		<div>
-		    <a href="#">Deliveries</a>
-		</div>
-		<div>
-		    <a href="#">MY Parcels</a>
-		</div>
-		<div class="empty_space">
-		</div>
-		<div>
-		    <a href="#">contact_us</a>
-		</div>
-	    </div>
-	    <div class="mainsection">
+	    <div class="skeleton-mainsection">
 		{% with messages = get_flashed_messages(with_categories=true) %}
 			{% if messages %}
 				{% for category, message in messages %}
