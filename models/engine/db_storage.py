@@ -34,6 +34,9 @@ class DBStorage:
         if PATHWAY_ENV == "test":
             Base.metadata.drop_all(self.__engine)
 
+        Session = scoped_session(sessionmaker(bind=self.__engine, expire_on_commit=False))
+        self.__session = Session()
+
     def all(self, cls=None):
         """query on the current database session"""
         new_dict = {}
@@ -68,6 +71,17 @@ class DBStorage:
     def close(self):
         """call remove() method on the private session attribute"""
         self.__session.remove()
+
+    def is_available(self, cls, attr="", value=""):
+        '''checks is a class instance is available based of given attribute'''
+        if cls not in classes.values():
+            return False
+        objects = models.storage.all(cls)
+        for obj in objects.values():
+            if getattr(obj, attr) == value:
+                return obj
+        return False
+
 
     def get(self, cls, id):
         """

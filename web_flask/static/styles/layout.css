@@ -35,6 +35,10 @@
   float: right;
 }
 
+.topnav a.username {
+  float: right;
+}
+
 .logo img {
   width: 60px;
   float: left;
@@ -269,6 +273,7 @@
 
 .fas {
     margin-right: 5px; /* Adjust the spacing between the icon and text */
+    color: white;
 }
 
 

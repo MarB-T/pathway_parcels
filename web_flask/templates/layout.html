@@ -16,6 +16,7 @@
             <a href="{{ url_for('home') }}" class="active">Home</a>
 	    <a href="{{ url_for('post_parcel') }}">Post a Parcel</a>
 	    {% if current_user.is_authenticated %}
+	    <a href="#" class="username">{{ current_user.username }}</a>
 	    	<a href="{{ url_for('logout') }}" class="login">Log out</a>
 	    {% else %}
 	    	<a href="{{ url_for('login') }}" class="login">Log in</a>

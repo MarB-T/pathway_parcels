@@ -5,7 +5,7 @@ from models.user import User
 from models.parcel import Parcel
 from models.review import Review
 from os import environ
-from flask import Flask, render_template, url_for, flash, redirect
+from flask import Flask, render_template, url_for, flash, redirect, request
 from web_flask.forms import RegistrationForm, LoginForm, SearchForm, ParcelForm
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user, current_user, logout_user, login_required, AnonymousUserMixin
@@ -32,11 +32,32 @@ def close_db(error):
 
 
 @app.route('/', strict_slashes=False)
-@app.route('/home', strict_slashes=False)
+@app.route('/home', methods=['GET', 'POST'], strict_slashes=False)
 def home():
     """pathway web app"""
     parcels = storage.all(Parcel).values()
     users = storage.all(User).values()
+
+    if request.method == 'POST':
+        origin = request.form.get('origin')
+        destination = request.form.get('destination')
+        found_parcels = []
+        for parcel in parcels:
+            if origin and destination:
+                if (parcel.origin.lower() == origin.lower()) and (parcel.destination.lower() == destination.lower()):
+                    found_parcels.append(parcel)
+            elif origin:
+                if (parcel.origin.lower() == origin.lower()):
+                    found_parcels.append(parcel)
+            elif destination:
+                if (parcel.destination.lower() == destination.lower()):
+                    found_parcels.append(parcel)
+        
+        if len(found_parcels) == 0:
+            flash('Not found!')
+        else:
+            found_sorted = sorted(found_parcels, key=lambda found: found.created_at, reverse=True)
+            return render_template('home.html', parcels=found_sorted, users=users)
     parcels_sorted = sorted(parcels, key=lambda parcel: parcel.created_at, reverse=True)
     return render_template('home.html', parcels=parcels_sorted, users=users)
 
